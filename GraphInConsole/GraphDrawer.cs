@@ -8,24 +8,25 @@ using System.Threading.Tasks;
 namespace GraphInConsole;
 internal class GraphDrawer
 {
-    private static int DifferenceX { get; } = 5;
-
     private static int DifferenceY { get; } = 7;
 
-    private static int MarginOfCoordinateAxis { get; } = 8;
-
-    public void Draw(IGraph graph, char c)
+    public void Draw(IGraph graph, char c, ConsoleColor color = ConsoleColor.White)
     {
-        this.DrawCoordinateAxis();
+        Console.ForegroundColor = color;
         foreach (var point in graph.GetPoints())
         {
             var origin = GetOriginPoint();
             var x = point.X + origin.X;
             var y = point.Y + origin.Y;
+            if (!CanDraw(x, y))
+            {
+                continue;
+            }
             Console.CursorLeft = x;
             Console.CursorTop = y;
             Console.Write(c);
         }
+        Console.ResetColor();
     }
 
     public void DrawCoordinateAxis()
@@ -49,7 +50,7 @@ internal class GraphDrawer
         {
             char WriteCharacter = i == last ? '＞' : '─';
             Console.Write(WriteCharacter);
-            Task.Delay(20).Wait();
+            Task.Delay(10).Wait();
         }
 
         Console.SetCursorPosition(origin.X, origin.Y);
@@ -64,5 +65,12 @@ internal class GraphDrawer
         int x = Console.BufferWidth / 2;
         int y = DifferenceY + (Console.BufferHeight - DifferenceY) / 2;
         return (x, y);
+    }
+
+    private bool CanDraw(int x, int y)
+    {
+        bool canWriteX = x < Console.BufferWidth && x > 0;
+        bool canWriteY = y < Console.BufferHeight && y > DifferenceY;
+        return canWriteX && canWriteY;
     }
 }
