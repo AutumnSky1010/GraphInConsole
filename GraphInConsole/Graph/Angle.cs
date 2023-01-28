@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GraphInConsole.Graph;
+namespace GraphInConsole.Graphs;
 internal static class Angle
 {
     public static double ToDegree(double radian)

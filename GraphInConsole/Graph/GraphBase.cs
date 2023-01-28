@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GraphInConsole.Graph;
+namespace GraphInConsole.Graphs;
 internal abstract class GraphBase : IGraph
 {
     public GraphBase(int interceptX = 0, int interceptY = 0)

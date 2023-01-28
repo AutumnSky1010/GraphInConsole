@@ -1,4 +1,4 @@
-﻿using GraphInConsole.Graph;
+﻿using GraphInConsole.Graphs;
 using System;
 using System.Collections.Generic;
 using System.Linq;

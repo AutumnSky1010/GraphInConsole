@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GraphInConsole.Graph;
+namespace GraphInConsole.Graphs;
 internal class Circle : GraphBase
 {
     public Circle(int radius, int interceptX = 0, int interceptY = 0) : base(interceptX,interceptY)
@@ -17,13 +17,13 @@ internal class Circle : GraphBase
     public override IEnumerable<(int X, int Y)> GetPoints()
     {
         int r = this.Radius;
-        int dx = this.InterceptX;
-        int dy = this.InterceptY;
+        int interceptX = this.InterceptX;
+        int interceptY = this.InterceptY;
         for (int i = 360; i >= 0; i--)
         {
             double rad = Angle.ToRadian(i);
-            int x = (int)Math.Floor(2 * r * Math.Cos(rad)) + dx;
-            int y = (int)Math.Floor(r * Math.Sin(rad)) + dy;
+            int x = (int)Math.Floor(2 * r * Math.Cos(rad)) + interceptX;
+            int y = (int)Math.Floor(r * Math.Sin(rad)) - interceptY;
             yield return (x, y);
         }
     }
