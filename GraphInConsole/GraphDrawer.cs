@@ -28,6 +28,8 @@ internal class GraphDrawer
             Task.Delay(10).Wait();
         }
         Console.ResetColor();
+        Console.CursorTop = Console.BufferHeight - 1;
+        Console.Write("\n\n");
     }
 
     public void DrawCoordinateAxis()

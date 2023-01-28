@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 namespace GraphInConsole.Graphs;
 internal class Asteroid : GraphBase
 {
-    public Asteroid(int a, int interceptX = 0, int interceptY = 0) : base(interceptX, interceptY)
+    public Asteroid(int width, int interceptX = 0, int interceptY = 0) : base(interceptX, interceptY)
     {
-        this.A = a;
+        this.Width = width;
     }
 
-    private int A { get; }
+    private int Width { get; }
 
     public override IEnumerable<(int X, int Y)> GetPoints()
     {
-        int a = this.A;
+        int a = this.Width;
         for (int i = 360; i >= 0; i--)
         {
             double rad = Angle.ToRadian(i);
