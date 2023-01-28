@@ -28,8 +28,6 @@ internal class GraphDrawer
             Task.Delay(10).Wait();
         }
         Console.ResetColor();
-        Console.CursorTop = Console.BufferHeight - 1;
-        Console.Write("\n\n");
     }
 
     public void DrawCoordinateAxis()
@@ -44,7 +42,7 @@ internal class GraphDrawer
         {
             char WriteCharacter = i == 0 ? '↑' : '│';
             Console.Write(WriteCharacter);
-            Task.Delay(20).Wait();
+            Task.Delay(5).Wait();
         }
 
         Console.SetCursorPosition(0, origin.Y);
@@ -53,7 +51,7 @@ internal class GraphDrawer
         {
             char WriteCharacter = i == last ? '＞' : '─';
             Console.Write(WriteCharacter);
-            Task.Delay(10).Wait();
+            Task.Delay(5).Wait();
         }
 
         Console.SetCursorPosition(origin.X, origin.Y);

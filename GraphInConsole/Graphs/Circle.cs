@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 namespace GraphInConsole.Graphs;
 internal class Circle : GraphBase
 {
-    public Circle(int radius, int interceptX = 0, int interceptY = 0) : base(interceptX,interceptY)
+    public Circle(double radius, int interceptX = 0, int interceptY = 0) : base(interceptX,interceptY)
     {
         this.Radius = radius;
     }
 
-    private int Radius { get; }
+    private double Radius { get; }
 
     public override IEnumerable<(int X, int Y)> GetPoints()
     {
-        int r = this.Radius;
+        double r = this.Radius;
         int interceptX = this.InterceptX;
         int interceptY = this.InterceptY;
         for (int i = 360; i >= 0; i--)

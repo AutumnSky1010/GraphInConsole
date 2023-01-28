@@ -5,29 +5,28 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace GraphInConsole.Graphs;
-internal class Ellipse : GraphBase
+internal class Rose : GraphBase
 {
-    public Ellipse(double a, double b, int interceptX = 0, int interceptY = 0) : base(interceptX, interceptY)
+    public Rose(int width, int a, int interceptX = 0, int interceptY = 0) : base(interceptX, interceptY)
     {
         this.A = a;
-        this.B = b;
+        this.Width = width;
     }
 
-    private double A;
+    private int A { get; }
 
-    private double B;
+    private int Width { get; }
 
     public override IEnumerable<(int X, int Y)> GetPoints()
     {
-        double a = this.A;
-        double b = this.B;
+        var a = this.A;
         int interceptX = this.InterceptX;
         int interceptY = this.InterceptY;
         for (int i = 360; i >= 0; i--)
         {
             double rad = Angle.ToRadian(i);
-            int x = (int)Math.Floor(2 * a * Math.Cos(rad)) + interceptX;
-            int y = (int)Math.Floor(b * Math.Sin(rad)) - interceptY;
+            int x = (int)Math.Floor(2 * this.Width * Math.Sin(a * rad) * Math.Cos(rad)) + interceptX;
+            int y = (int)Math.Floor(this.Width * Math.Sin(a * rad)* Math.Sin(rad)) - interceptY;
             yield return (x, y);
         }
     }
