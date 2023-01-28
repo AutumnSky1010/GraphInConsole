@@ -5,26 +5,20 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace GraphInConsole.Graph;
-internal class Circle : IGraph
+internal class Circle : GraphBase
 {
-    public Circle(int radius, int dx = 0, int dy = 0)
+    public Circle(int radius, int interceptX = 0, int interceptY = 0) : base(interceptX,interceptY)
     {
         this.Radius = radius;
-        this.DX = dx;
-        this.DY = dy;
     }
-
-    private int DX { get; }
-
-    private int DY { get; }
 
     private int Radius { get; }
 
-    public IEnumerable<(int X, int Y)> GetPoints()
+    public override IEnumerable<(int X, int Y)> GetPoints()
     {
         int r = this.Radius;
-        int dx = this.DX;
-        int dy = this.DY;
+        int dx = this.InterceptX;
+        int dy = this.InterceptY;
         for (int i = 360; i >= 0; i--)
         {
             double rad = Angle.ToRadian(i);

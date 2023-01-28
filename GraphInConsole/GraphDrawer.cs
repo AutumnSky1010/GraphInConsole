@@ -25,6 +25,7 @@ internal class GraphDrawer
             Console.CursorLeft = x;
             Console.CursorTop = y;
             Console.Write(c);
+            Task.Delay(10).Wait();
         }
         Console.ResetColor();
     }

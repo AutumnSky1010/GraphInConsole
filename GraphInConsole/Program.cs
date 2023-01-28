@@ -9,6 +9,6 @@ public class Program
         graphDrawer.DrawCoordinateAxis();
         graphDrawer.Draw(new Circle(11), '*', ConsoleColor.DarkGreen);
         graphDrawer.Draw(new Circle(9, 5, 5), 'x', ConsoleColor.Yellow);
-        graphDrawer.Draw(new Circle(30), '+', ConsoleColor.Blue);
+        graphDrawer.Draw(new Ellipse(13, 9), '&', ConsoleColor.Blue);
     }   
 }
